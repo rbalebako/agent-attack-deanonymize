@@ -2,11 +2,13 @@ from google.adk.agents import LlmAgent
 
 from .prompts import EXTRACTOR_INSTRUCTION, RETRIEVER_INSTRUCTION, SUMMARIZER_INSTRUCTION
 from .tools import search_web
-from config import settings
+from .model_factory import get_model
+
+_model = get_model()
 
 retriever_agent = LlmAgent(
     name="retriever",
-    model=settings.gemini_model,
+    model=_model,
     description=(
         "Searches the web for information matching a pseudonymous identity. "
         "Input: a focused search query string. "
@@ -18,7 +20,7 @@ retriever_agent = LlmAgent(
 
 extractor_agent = LlmAgent(
     name="extractor",
-    model=settings.gemini_model,
+    model=_model,
     description=(
         "Extracts and structures PII from raw web search results. "
         "Input: raw search result text from the retriever. "
@@ -30,7 +32,7 @@ extractor_agent = LlmAgent(
 
 summarizer_agent = LlmAgent(
     name="summarizer",
-    model=settings.gemini_model,
+    model=_model,
     description=(
         "Produces a final de-anonymization assessment report. "
         "Input: all findings accumulated across retriever and extractor calls. "

@@ -3,11 +3,12 @@ from google.adk.tools.agent_tool import AgentTool
 
 from .prompts import STRATEGIST_INSTRUCTION
 from .sub_agents import extractor_agent, retriever_agent, summarizer_agent
+from .model_factory import get_model
 from config import settings
 
 root_agent = LlmAgent(
     name="strategist",
-    model=settings.gemini_model,
+    model=get_model(),
     description=(
         "Orchestrates de-anonymization attempts on pseudonymous identity records "
         "by coordinating the retriever, extractor, and summarizer agents."

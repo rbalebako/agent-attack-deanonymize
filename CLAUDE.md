@@ -75,6 +75,21 @@ The strategist is instructed via its system prompt (`MAX_ITERATIONS`, default 10
 
 `CostTracker` accumulates `prompt_token_count` and `candidates_token_count` from `event.usage_metadata` on each ADK event in the runner stream. Pricing constants in `cost_tracker.py` are set for Gemini 2.0 Flash — update them if switching models.
 
+## LLM backends
+
+Controlled by `LLM_BACKEND` in `.env`. Switching backends requires no code changes.
+
+| `LLM_BACKEND` | Required env vars | Notes |
+|---|---|---|
+| `google` (default) | `GOOGLE_API_KEY`, `GEMINI_MODEL` | Uses Gemini via Google ADK |
+| `ollama` | `OLLAMA_MODEL`, `OLLAMA_BASE_URL` | Uses local Ollama via ADK's LiteLlm wrapper |
+
+For Ollama: install from [ollama.com](https://ollama.com), then `ollama pull llama3.2`. Tool-calling reliability varies by model — `llama3.2` and `mistral` are known to work well with ADK's `AgentTool` pattern.
+
+The factory function `deanonymize/model_factory.py:get_model()` is the single place that resolves the backend. All four agents call it; all agents always use the same backend.
+
+When using Ollama, `CostTracker` still records token counts from ADK events but the USD estimate will be $0 (no API billing). This is intentional — local inference cost is measured separately by wall-clock time.
+
 ## Search backends
 
 - **Tavily** (default): set `TAVILY_API_KEY` in `.env`. Free tier available.

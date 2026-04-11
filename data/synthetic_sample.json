@@ -1,0 +1,62 @@
+[
+  {
+    "id": "synth_001",
+    "handle": "d3ep_w4ters",
+    "location_hint": "Pacific Northwest, UTC-8",
+    "bio": "ML engineer by day, amateur radio operator by night. Coffee snob. Dad of 3.",
+    "interests": ["distributed systems", "amateur radio", "espresso", "hiking"],
+    "platform_hints": [
+      "posts in r/MachineLearning",
+      "GitHub repos focused on Rust networking",
+      "active on Ham radio forums"
+    ],
+    "writing_samples": [
+      "The key insight is that gradient descent is just karma for your loss function lol",
+      "Anyone else finding that k3s clusters are just more enjoyable to manage than full k8s? Curious about the tradeoffs at scale"
+    ],
+    "metadata": {
+      "estimated_age_range": "35-45",
+      "likely_employer_type": "mid-size tech company or startup"
+    }
+  },
+  {
+    "id": "synth_002",
+    "handle": "cryptonaut_7",
+    "location_hint": "Austin TX area",
+    "bio": "Security researcher. Into CTF competitions. Dog mom. Plays bass guitar.",
+    "interests": ["CTF", "binary exploitation", "bass guitar", "dogs"],
+    "platform_hints": [
+      "posts writeups on personal blog",
+      "CTFtime profile",
+      "active in infosec Twitter/X community"
+    ],
+    "writing_samples": [
+      "writeup incoming for the pwn challenge from last weekend's CTF, that heap overflow was nasty",
+      "my labrador absolutely destroyed my mechanical keyboard today. back to topre i guess"
+    ],
+    "metadata": {
+      "estimated_age_range": "25-35",
+      "likely_employer_type": "security firm or independent researcher"
+    }
+  },
+  {
+    "id": "synth_003",
+    "handle": "velvet_quark",
+    "location_hint": "Berlin or Germany",
+    "bio": "Physicist turned quant. Weekends: ceramics, long bike rides.",
+    "interests": ["quantitative finance", "ceramics", "cycling", "quantum computing"],
+    "platform_hints": [
+      "posts on Hacker News",
+      "QuantLib contributor on GitHub",
+      "ceramics community forums"
+    ],
+    "writing_samples": [
+      "The Black-Scholes model is just Schrödinger's equation with a different boundary condition — both are diffusion problems",
+      "Threw my first actual bowl today. Only took destroying 12 kg of clay to get there"
+    ],
+    "metadata": {
+      "estimated_age_range": "30-40",
+      "likely_employer_type": "hedge fund or bank quant desk"
+    }
+  }
+]

@@ -28,5 +28,235 @@
     "display_type": "mobile",
     "click_time": "2024-11-16T18:44:09Z",
     "clicked_url": "https://m.uber.com/trips/a8f3c1?name=Sofia+Mendes&phone=%2B919820044123"
+  },
+  {
+    "id": "row_ie_001",
+    "sms_text": "AIB: Your one-time passcode is 381047. Valid for 5 minutes. Never share this code. Ref: AOB-29471.",
+    "country": "IE",
+    "location": "Dublin",
+    "inferred_language": "en-IE",
+    "display_type": "mobile",
+    "click_time": "2024-11-18T08:14:03Z",
+    "clicked_url": "https://aib.ie/security/verify?session=AOB-29471&user=aoife.obrien82"
+  },
+  {
+    "id": "row_ie_002",
+    "sms_text": "An Post: Your parcel CN847291364IE is out for delivery today. Track at anpost.com/track",
+    "country": "IE",
+    "location": "Cork",
+    "inferred_language": "en-IE",
+    "display_type": "mobile",
+    "click_time": "2024-11-18T10:55:29Z",
+    "clicked_url": "https://anpost.com/track/CN847291364IE?notify=ciaran.murphy@eircom.net"
+  },
+  {
+    "id": "row_ie_003",
+    "sms_text": "Vodafone IE: You have used 90% of your data. Top up or add a bolt-on at vodafone.ie/myaccount",
+    "country": "IE",
+    "location": "Galway",
+    "inferred_language": "en-IE",
+    "display_type": "mobile",
+    "click_time": "2024-11-19T17:33:12Z",
+    "clicked_url": "https://vodafone.ie/myaccount/data?msisdn=0831024758&cid=sms-data90"
+  },
+  {
+    "id": "row_ie_004",
+    "sms_text": "Revenue: A Notice of Assessment has been issued to your myAccount. Log in at ros.ie to view.",
+    "country": "IE",
+    "location": "Limerick",
+    "inferred_language": "en-IE",
+    "display_type": "desktop",
+    "click_time": "2024-11-19T11:02:44Z",
+    "clicked_url": "https://myaccount.ros.ie/en/login?ppsn=8821437WA&redirect=noa"
+  },
+  {
+    "id": "row_ie_005",
+    "sms_text": "FreeNow: Hi Niamh, your driver Tomasz is 2 min away in a grey Skoda Octavia. 191-D-44832.",
+    "country": "IE",
+    "location": "Dublin",
+    "inferred_language": "en-IE",
+    "display_type": "mobile",
+    "click_time": "2024-11-20T22:08:57Z",
+    "clicked_url": "https://m.free-now.com/ride/7f3ab9?passenger=niamh.fitzpatrick&rating=1"
+  },
+  {
+    "id": "row_ie_006",
+    "sms_text": "Tesco IE: Your grocery order #TIE-8847201 is confirmed for delivery 10am-12pm tomorrow. View order: tesco.ie/orders",
+    "country": "IE",
+    "location": "Waterford",
+    "inferred_language": "en-IE",
+    "display_type": "tablet",
+    "click_time": "2024-11-20T19:41:18Z",
+    "clicked_url": "https://tesco.ie/orders/TIE-8847201?email=seanog.doyle%40gmail.com"
+  },
+  {
+    "id": "row_ie_007",
+    "sms_text": "Dunnes Stores: You have 480 bonus points ready to redeem. Check your balance at dunnesstores.com/loyalty",
+    "country": "IE",
+    "location": "Kilkenny",
+    "inferred_language": "en-IE",
+    "display_type": "mobile",
+    "click_time": "2024-11-21T14:27:09Z",
+    "clicked_url": "https://dunnesstores.com/loyalty/balance?card=6391847200441823&name=Grainne+Brennan"
+  },
+  {
+    "id": "row_ie_008",
+    "sms_text": "Three Ireland: Bill of €47.99 is due on 28 Nov. Pay now at three.ie/bill to avoid interruption.",
+    "country": "IE",
+    "location": "Dublin",
+    "inferred_language": "en-IE",
+    "display_type": "mobile",
+    "click_time": "2024-11-21T09:03:31Z",
+    "clicked_url": "https://three.ie/bill/pay?account=IRL-003-8847219&ph=0860039281"
+  },
+  {
+    "id": "row_ie_009",
+    "sms_text": "Laya Healthcare: Your pre-authorisation for procedure code 73T has been approved. Ref PA-20241122-00471.",
+    "country": "IE",
+    "location": "Galway",
+    "inferred_language": "en-IE",
+    "display_type": "desktop",
+    "click_time": "2024-11-22T10:19:47Z",
+    "clicked_url": "https://layahealthcare.ie/myplan/preauth?ref=PA-20241122-00471&member=LH-0047821"
+  },
+  {
+    "id": "row_ie_010",
+    "sms_text": "MyGovID: Verify your identity to complete your application. Your code is 920381. Expires in 10 mins.",
+    "country": "IE",
+    "location": "Cork",
+    "inferred_language": "en-IE",
+    "display_type": "mobile",
+    "click_time": "2024-11-22T15:44:02Z",
+    "clicked_url": "https://mygovid.ie/verify?token=920381&session=donal.sheehan.1974"
+  },
+  {
+    "id": "row_ie_011",
+    "sms_text": "Ryanair: Flight FR4421 DUB-BCN on 30 Nov is on time. Check in now: ryanair.com/checkin Booking: XPQ7KM",
+    "country": "IE",
+    "location": "Dublin",
+    "inferred_language": "en-IE",
+    "display_type": "mobile",
+    "click_time": "2024-11-23T07:58:14Z",
+    "clicked_url": "https://ryanair.com/checkin/XPQ7KM?name=Sinead+Gallagher&dob=1991-03-17"
+  },
+  {
+    "id": "row_ie_012",
+    "sms_text": "SuperValu: Hi Brendan, your Real Rewards points balance is 1,240. Shop online: supervalu.ie",
+    "country": "IE",
+    "location": "Limerick",
+    "inferred_language": "en-IE",
+    "display_type": "mobile",
+    "click_time": "2024-11-23T13:22:41Z",
+    "clicked_url": "https://supervalu.ie/real-rewards/account?id=RR-00847291&fname=Brendan&lname=Ryan"
+  },
+  {
+    "id": "row_ie_013",
+    "sms_text": "eir: There is a service disruption affecting broadband in your area. Expected fix: 6pm today. Sorry for the inconvenience.",
+    "country": "IE",
+    "location": "Sligo",
+    "inferred_language": "en-IE",
+    "display_type": "desktop",
+    "click_time": "2024-11-24T11:37:58Z",
+    "clicked_url": "https://eir.ie/support/outage?account=EIR-8210039&eircode=F91XK28"
+  },
+  {
+    "id": "row_ie_014",
+    "sms_text": "Lidl Plus: Your digital coupon for 20% off wine expires tonight. Open the app to activate.",
+    "country": "IE",
+    "location": "Dublin",
+    "inferred_language": "en-IE",
+    "display_type": "mobile",
+    "click_time": "2024-11-24T17:05:22Z",
+    "clicked_url": "https://app.lidl-plus.com/ie/coupon/activate?uid=LP-IRL-009184722&coupon=WINE20NOV"
+  },
+  {
+    "id": "row_ie_015",
+    "sms_text": "Virgin Media: Your monthly bill of €89.00 is ready. View it at virginmedia.ie/mybill — due 5 Dec.",
+    "country": "IE",
+    "location": "Cork",
+    "inferred_language": "en-IE",
+    "display_type": "tablet",
+    "click_time": "2024-11-25T08:44:09Z",
+    "clicked_url": "https://virginmedia.ie/mybill?acct=VM-IRL-00192847&name=Fionnuala+McCarthy"
+  },
+  {
+    "id": "row_ie_016",
+    "sms_text": "Bank of Ireland: A new payee Revolut Ltd was added to your account ending 4821. If this wasn't you, call 1800-946-146.",
+    "country": "IE",
+    "location": "Galway",
+    "inferred_language": "en-IE",
+    "display_type": "mobile",
+    "click_time": "2024-11-25T21:13:37Z",
+    "clicked_url": "https://365online.bankofireland.com/security/payee-alert?ref=PAY-8472918&user=padraig.connolly91"
+  },
+  {
+    "id": "row_ie_017",
+    "sms_text": "DPD Ireland: Your parcel 10473628190IE will be delivered between 14:00-16:00. Redirect at dpd.ie/mydelivery",
+    "country": "IE",
+    "location": "Waterford",
+    "inferred_language": "en-IE",
+    "display_type": "mobile",
+    "click_time": "2024-11-26T09:28:55Z",
+    "clicked_url": "https://dpd.ie/mydelivery/10473628190IE?email=maeve.power84%40hotmail.com&eircode=X91PW34"
+  },
+  {
+    "id": "row_ie_018",
+    "sms_text": "Permanent TSB: Your mortgage statement for account 92-88-14 / 00481927 is now available online.",
+    "country": "IE",
+    "location": "Dublin",
+    "inferred_language": "en-IE",
+    "display_type": "desktop",
+    "click_time": "2024-11-26T12:02:18Z",
+    "clicked_url": "https://open24.permanenttsb.ie/statements/mortgage?acct=00481927&customer=Cormac+Whelan"
+  },
+  {
+    "id": "row_ie_019",
+    "sms_text": "Electric Ireland: Your electricity bill of €134.20 is due 2 Dec. Pay at electricireland.ie/pay or call 1850-372-372.",
+    "country": "IE",
+    "location": "Kildare",
+    "inferred_language": "en-IE",
+    "display_type": "desktop",
+    "click_time": "2024-11-27T10:15:44Z",
+    "clicked_url": "https://electricireland.ie/pay?account=EI-00847211&mprn=10192847301&eircode=W12RF72"
+  },
+  {
+    "id": "row_ie_020",
+    "sms_text": "Aer Lingus: Check-in open for EI522 DUB-JFK 29 Nov. Booking ref YJMT4R. Online check-in: aerlingus.com/checkin",
+    "country": "IE",
+    "location": "Dublin",
+    "inferred_language": "en-IE",
+    "display_type": "mobile",
+    "click_time": "2024-11-27T07:31:09Z",
+    "clicked_url": "https://aerlingus.com/checkin/YJMT4R?pax=Saoirse+Nolan&passport=PA1847203"
+  },
+  {
+    "id": "row_ie_021",
+    "sms_text": "Revolut: You sent €45.00 to Conor M. If this wasn't you, freeze your card immediately in the app.",
+    "country": "IE",
+    "location": "Dublin",
+    "inferred_language": "en-IE",
+    "display_type": "mobile",
+    "click_time": "2024-11-27T20:47:33Z",
+    "clicked_url": "https://app.revolut.com/transaction/txn_9f2ka8b?user=orla.hennessy&amount=45.00"
+  },
+  {
+    "id": "row_ie_022",
+    "sms_text": "Cycle to Work: Your employer has approved your application. Collect your voucher at cyclescheme.ie/voucher",
+    "country": "IE",
+    "location": "Wexford",
+    "inferred_language": "en-IE",
+    "display_type": "desktop",
+    "click_time": "2024-11-28T09:04:21Z",
+    "clicked_url": "https://cyclescheme.ie/voucher?ref=CS-IRL-00291847&email=declan.byrne%40acmecorp.ie"
+  },
+  {
+    "id": "row_ie_023",
+    "sms_text": "Garda Síochána: Your online penalty points inquiry is ready. View at garda.ie/fixedcharges — Ref FC-2024-00847219.",
+    "country": "IE",
+    "location": "Tipperary",
+    "inferred_language": "en-IE",
+    "display_type": "mobile",
+    "click_time": "2024-11-28T14:55:03Z",
+    "clicked_url": "https://garda.ie/fixedcharges/inquiry?ref=FC-2024-00847219&licence=TN847201&dob=1988-06-04"
   }
 ]

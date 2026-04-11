@@ -80,9 +80,29 @@ The strategist is instructed via its system prompt (`MAX_ITERATIONS`, default 10
 - **Tavily** (default): set `TAVILY_API_KEY` in `.env`. Free tier available.
 - **Google CSE**: set `SEARCH_BACKEND=google`, `GOOGLE_CSE_ID`, and `GOOGLE_API_KEY`. Useful if running against Vertex AI with built-in grounding.
 
-## Adding identity records
+## Identity record schema
 
-`data/synthetic_sample.json` accepts a JSON array of `IdentityRow` objects. Required field: `id`. All others are optional but more fields = richer attack surface for testing.
+`IdentityRow` maps directly to a pandas DataFrame row. Required field: `sms_text`. All others are optional.
+
+| Field | Type | De-anonymization signal |
+|---|---|---|
+| `sms_text` | str | **Highest** — may contain names, account IDs, brands, quoted phrases |
+| `clicked_url` | str | **High** — domain/path often reveals service and embeds account refs |
+| `country` | str | Medium — geographic anchor |
+| `location` | str | Medium — sub-national, combine with other signals |
+| `inferred_language` | str | Low-Medium — narrows population for non-English records |
+| `display_type` | str | Low — device/context hint |
+| `click_time` | str | Low — timing pattern, useful for corroboration |
+
+`id` is optional; if omitted it is auto-generated as `row_<sha1[:8]>` of the sms_text.
+
+**Loading from a DataFrame:**
+```python
+from models import IdentityRow
+rows = [IdentityRow(**row, id=str(idx)) for idx, row in df.iterrows()]
+```
+
+`data/synthetic_sample.json` contains three synthetic records for testing.
 
 ## ADK notes
 

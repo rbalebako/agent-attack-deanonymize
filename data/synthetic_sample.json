@@ -1,62 +1,32 @@
 [
   {
-    "id": "synth_001",
-    "handle": "d3ep_w4ters",
-    "location_hint": "Pacific Northwest, UTC-8",
-    "bio": "ML engineer by day, amateur radio operator by night. Coffee snob. Dad of 3.",
-    "interests": ["distributed systems", "amateur radio", "espresso", "hiking"],
-    "platform_hints": [
-      "posts in r/MachineLearning",
-      "GitHub repos focused on Rust networking",
-      "active on Ham radio forums"
-    ],
-    "writing_samples": [
-      "The key insight is that gradient descent is just karma for your loss function lol",
-      "Anyone else finding that k3s clusters are just more enjoyable to manage than full k8s? Curious about the tradeoffs at scale"
-    ],
-    "metadata": {
-      "estimated_age_range": "35-45",
-      "likely_employer_type": "mid-size tech company or startup"
-    }
+    "id": "row_001",
+    "sms_text": "Hi James, your Barclays verification code is 847291. If you did not request this, call 0800-400-100.",
+    "country": "GB",
+    "location": "Manchester",
+    "inferred_language": "en-GB",
+    "display_type": "mobile",
+    "click_time": "2024-11-14T09:23:41Z",
+    "clicked_url": "https://barclayscards.co.uk/verify?token=xK9mP2&ref=james.whitfield"
   },
   {
-    "id": "synth_002",
-    "handle": "cryptonaut_7",
-    "location_hint": "Austin TX area",
-    "bio": "Security researcher. Into CTF competitions. Dog mom. Plays bass guitar.",
-    "interests": ["CTF", "binary exploitation", "bass guitar", "dogs"],
-    "platform_hints": [
-      "posts writeups on personal blog",
-      "CTFtime profile",
-      "active in infosec Twitter/X community"
-    ],
-    "writing_samples": [
-      "writeup incoming for the pwn challenge from last weekend's CTF, that heap overflow was nasty",
-      "my labrador absolutely destroyed my mechanical keyboard today. back to topre i guess"
-    ],
-    "metadata": {
-      "estimated_age_range": "25-35",
-      "likely_employer_type": "security firm or independent researcher"
-    }
+    "id": "row_002",
+    "sms_text": "Dein Paket von DHL ist unterwegs. Verfolge es hier: https://dhl.de/track/492817364",
+    "country": "DE",
+    "location": "Hamburg",
+    "inferred_language": "de",
+    "display_type": "mobile",
+    "click_time": "2024-11-15T14:07:22Z",
+    "clicked_url": "https://dhl.de/track/492817364?recipient=k.mueller%40gmail.com"
   },
   {
-    "id": "synth_003",
-    "handle": "velvet_quark",
-    "location_hint": "Berlin or Germany",
-    "bio": "Physicist turned quant. Weekends: ceramics, long bike rides.",
-    "interests": ["quantitative finance", "ceramics", "cycling", "quantum computing"],
-    "platform_hints": [
-      "posts on Hacker News",
-      "QuantLib contributor on GitHub",
-      "ceramics community forums"
-    ],
-    "writing_samples": [
-      "The Black-Scholes model is just Schrödinger's equation with a different boundary condition — both are diffusion problems",
-      "Threw my first actual bowl today. Only took destroying 12 kg of clay to get there"
-    ],
-    "metadata": {
-      "estimated_age_range": "30-40",
-      "likely_employer_type": "hedge fund or bank quant desk"
-    }
+    "id": "row_003",
+    "sms_text": "Sofia, your Uber ride is 3 mins away. Driver: Raj. Plate: MH 04 AB 2291.",
+    "country": "IN",
+    "location": "Mumbai",
+    "inferred_language": "en-IN",
+    "display_type": "mobile",
+    "click_time": "2024-11-16T18:44:09Z",
+    "clicked_url": "https://m.uber.com/trips/a8f3c1?name=Sofia+Mendes&phone=%2B919820044123"
   }
 ]

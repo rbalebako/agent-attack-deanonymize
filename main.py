@@ -7,10 +7,17 @@ Usage:
     python main.py data/synthetic_sample.json --id synth_001 --verbose
 """
 
+# Load .env into os.environ before any ADK/google-genai imports,
+# since those libraries read GOOGLE_API_KEY and GOOGLE_GENAI_USE_VERTEXAI
+# directly from the environment at client-init time.
+from dotenv import load_dotenv
+load_dotenv()
+
 import argparse
 import asyncio
 import json
 import sys
+import time
 from pathlib import Path
 from typing import Optional
 
@@ -69,7 +76,7 @@ async def run_attack(identity_row: IdentityRow, verbose: bool = False) -> Attack
     tracker = CostTracker()
     session_service = InMemorySessionService()
 
-    session = session_service.create_session(
+    session = await session_service.create_session(
         app_name=APP_NAME,
         user_id="researcher",
     )
@@ -138,6 +145,25 @@ def _print_result(result: AttackResult) -> None:
     console.print(table)
 
 
+def _run_with_backoff(identity: IdentityRow, verbose: bool, max_retries: int = 4) -> AttackResult:
+    """Run a single attack with exponential backoff on 429 rate-limit errors."""
+    delay = 10  # seconds, doubles each retry
+    for attempt in range(max_retries + 1):
+        try:
+            return asyncio.run(run_attack(identity, verbose=verbose))
+        except Exception as e:
+            is_rate_limit = "429" in str(e) or "resource exhausted" in str(e).lower()
+            if is_rate_limit and attempt < max_retries:
+                console.print(
+                    f"[yellow]Rate limit hit — waiting {delay}s before retry "
+                    f"({attempt + 1}/{max_retries})…[/yellow]"
+                )
+                time.sleep(delay)
+                delay *= 2
+            else:
+                raise
+
+
 def main() -> None:
     parser = argparse.ArgumentParser(
         description="Red-team de-anonymization attack runner"
@@ -157,22 +183,22 @@ def main() -> None:
     args = parser.parse_args()
 
     raw = json.loads(Path(args.input).read_text())
-    rows = raw if isinstance(raw, list) else [raw]
+    raw_rows = raw if isinstance(raw, list) else [raw]
+    identities = [IdentityRow(**r) for r in raw_rows]
 
     if args.identity_id:
-        rows = [r for r in rows if r.get("id") == args.identity_id]
-        if not rows:
+        identities = [i for i in identities if i.id == args.identity_id]
+        if not identities:
             console.print(f"[red]Identity '{args.identity_id}' not found in {args.input}[/red]")
             sys.exit(1)
 
     output_dir = Path(args.output_dir)
     output_dir.mkdir(parents=True, exist_ok=True)
 
-    for row_data in rows:
-        identity = IdentityRow(**row_data)
+    for identity in identities:
         console.rule(f"[yellow]Attacking: {identity.id}[/yellow]")
 
-        result = asyncio.run(run_attack(identity, verbose=args.verbose))
+        result = _run_with_backoff(identity, verbose=args.verbose)
 
         _print_result(result)
 

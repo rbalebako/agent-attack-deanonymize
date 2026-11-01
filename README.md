@@ -22,6 +22,7 @@ _Last updated: 2026-11-01_
 - [x] Pluggable LLM backend: Gemini (default) or local Ollama via LiteLLM
 - [x] Runner hardening: exponential backoff on 429 rate limits, per-record JSON output
 - [x] `.gitignore` for `.env`, `__pycache__/`, `results/`; old `__pycache__/` files removed from the repo
+- [x] Unit tests (`pytest`) for `IdentityRow`, `CostTracker`, ADK event parsing, and the sample data
 
 ### Next up
 
@@ -29,7 +30,7 @@ _Last updated: 2026-11-01_
 - [ ] **Validate token accounting:** confirm ADK `usage_metadata` captures sub-agent calls made through `AgentTool`, not only strategist turns
 - [ ] **Fix `iterations_used`:** it currently counts every event that carries usage metadata, not sub-agent calls
 - [ ] **Split `findings` and `summary`:** both currently hold the strategist's final response
-- [ ] **Tests:** none yet. Start with `IdentityRow` ID generation, `CostTracker` math, and event parsing
+- [ ] **More tests:** cover the runner loop in `run_attack()` with a stubbed ADK runner, and `search_web` with mocked backends
 - [ ] **Aggregate reporting:** cost and success rate across all records, compared across anonymization variants
 - [ ] **Ollama path:** confirm tool-calling works with `llama3.2` / `mistral`; record wall-clock time, since Ollama runs report $0
 - [ ] **Usage safeguards:** see [Preventing misuse](#preventing-misuse)
@@ -128,6 +129,16 @@ Results are written as `result_<id>.json` per identity.
 adk run deanonymize    # interactive terminal session
 adk web                # opens the ADK dev UI at localhost:8000
 ```
+
+---
+
+## Running tests
+
+```bash
+python -m pytest
+```
+
+The tests live in `tests/` and need no API keys or network access. `tests/conftest.py` sets a dummy `GOOGLE_API_KEY` so the agents can be imported, but no model or search calls are made.
 
 ---
 

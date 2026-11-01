@@ -6,6 +6,36 @@ The primary output is a cost measurement: how expensive (in LLM tokens and USD) 
 
 ---
 
+## Status
+
+_Last updated: 2026-11-01_
+
+**Phase: pipeline built, not yet validated end-to-end.** The code is complete enough to run, but no attack results have been recorded yet.
+
+### Done
+
+- [x] Four-agent ADK pipeline (strategist → retriever / extractor / summarizer via `AgentTool`)
+- [x] Web search tool with Tavily (default) and Google CSE backends
+- [x] Input schema reshaped to the SMS click-tracking DataFrame format (`IdentityRow`)
+- [x] Synthetic test set: 26 records (`row_001`–`row_003` mixed GB/DE/IN, `row_ie_001`–`row_ie_023` Ireland-based)
+- [x] Token/USD cost tracking per run (`CostTracker`, Gemini 2.0 Flash pricing)
+- [x] Pluggable LLM backend: Gemini (default) or local Ollama via LiteLLM
+- [x] Runner hardening: exponential backoff on 429 rate limits, per-record JSON output
+- [x] `.gitignore` for `.env`, `__pycache__/`, `results/`; old `__pycache__/` files removed from the repo
+
+### Next up
+
+- [ ] **First real run:** attack the synthetic set end-to-end and check in a baseline in `results/` (or a summary of it)
+- [ ] **Validate token accounting:** confirm ADK `usage_metadata` captures sub-agent calls made through `AgentTool`, not only strategist turns
+- [ ] **Fix `iterations_used`:** it currently counts every event that carries usage metadata, not sub-agent calls
+- [ ] **Split `findings` and `summary`:** both currently hold the strategist's final response
+- [ ] **Tests:** none yet. Start with `IdentityRow` ID generation, `CostTracker` math, and event parsing
+- [ ] **Aggregate reporting:** cost and success rate across all records, compared across anonymization variants
+- [ ] **Ollama path:** confirm tool-calling works with `llama3.2` / `mistral`; record wall-clock time, since Ollama runs report $0
+- [ ] **Usage safeguards:** see [Preventing misuse](#preventing-misuse)
+
+---
+
 ## Authorization requirement
 
 > **This tool must only be run under a signed rules of engagement or equivalent written authorization from the data owner.**
@@ -19,6 +49,16 @@ The primary output is a cost measurement: how expensive (in LLM tokens and USD) 
 > - Testing against synthetic or fully consented data
 >
 > **Do not run this tool against real individuals without authorization.**
+
+### Preventing misuse
+
+The individual parts here (LLM agents plus web search) are easy to get, so a determined attacker could build something similar. These steps keep *this* tool from making that easier:
+
+- **Keep the repository private.** Share it only with people named in the engagement. Publish findings and cost figures, not the working prompts or orchestration code.
+- **Limit who holds API keys.** Use per-engagement Gemini and Tavily keys with spending caps, and revoke them when the engagement ends.
+- **Log every run.** Record who ran what, against which input file, and when, so runs can be checked against the authorized scope.
+- **Planned: enforce scope in code.** For example, refuse input files that aren't explicitly marked as synthetic or in-scope.
+- **Report through responsible disclosure.** Deliver results to the data owner, and treat result files as sensitive because they show which fields leak identity.
 
 ---
 
@@ -93,26 +133,24 @@ adk web                # opens the ADK dev UI at localhost:8000
 
 ## Input format
 
-Identity records are JSON objects in an array. Only `id` is required; the more fields provided, the richer the attack surface for testing.
+Identity records are JSON objects in an array, one per row of the SMS click-tracking DataFrame. Only `sms_text` is required. If `id` is omitted, it is generated as `row_<sha1[:8]>` of `sms_text`.
 
 ```json
 [
   {
-    "id": "synth_001",
-    "handle": "d3ep_w4ters",
-    "location_hint": "Pacific Northwest, UTC-8",
-    "bio": "ML engineer by day, amateur radio operator by night.",
-    "interests": ["distributed systems", "amateur radio", "espresso"],
-    "platform_hints": ["posts in r/MachineLearning", "GitHub repos in Rust"],
-    "writing_samples": ["Anyone else finding k3s more enjoyable than full k8s?"],
-    "metadata": {
-      "estimated_age_range": "35-45"
-    }
+    "id": "row_001",
+    "sms_text": "Hi James, your Barclays verification code is 847291. ...",
+    "country": "GB",
+    "location": "Manchester",
+    "inferred_language": "en-GB",
+    "display_type": "mobile",
+    "click_time": "2024-11-14T09:23:41Z",
+    "clicked_url": "https://barclayscards.co.uk/verify?token=xK9mP2&ref=james.whitfield"
   }
 ]
 ```
 
-See `data/synthetic_sample.json` for three complete examples.
+See `data/synthetic_sample.json` for 26 synthetic examples.
 
 ---
 
